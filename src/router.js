@@ -12,6 +12,7 @@ import CommentMag from "./views/CommentMag.vue";
 import CreateUser from "./views/CreateUser.vue";
 import UsersList from "./views/UsersList.vue";
 import EditUsers from "./views/EditUsers.vue";
+import UpdatePsd from "./views/UpdatePsd.vue"
 
 Vue.use(Router);
 
@@ -68,6 +69,10 @@ export default new Router({
     {
       path: "/users/:id/edit",
       component: EditUsers
+    },
+    {
+      path: "/users/UpdatePsd",
+      component: UpdatePsd
     }
   ]
 });

@@ -2,7 +2,6 @@
   <el-container class="bgImage" style="height: 100vh; border: 1px solid #eee">
     <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
       <el-menu router>
-        <!-- :default-openeds="['1']" -->
         <el-submenu index="1" :default-openeds="['1']">
           <template slot="title">
             <i class="el-icon-goods"></i>商品管理
@@ -18,7 +17,7 @@
           </template>
           <el-menu-item index="/users/usersManage">用户列表</el-menu-item>
           <el-menu-item index="/users/createUser">新建用户</el-menu-item>
-          <el-menu-item index="/users/changePsd">修改密码</el-menu-item>
+          <el-menu-item index="/users/UpdatePsd">修改密码</el-menu-item>
           <el-menu-item index="/users/exit">退出系统</el-menu-item>
         </el-submenu>
       </el-menu>

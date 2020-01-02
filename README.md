@@ -21,5 +21,3 @@
 | 后台管理 | http://localhost:8080/ | 
 | 服务端 | http://localhost:3001/ | 
 | 各接口 | http://localhost:3001/api/(表名) | 
-
-## 登录控制

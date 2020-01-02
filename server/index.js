@@ -41,6 +41,15 @@ const User = mongoose.model(
   })
 );
 
+// 系统管理员表
+const Admin = mongoose.model(
+  "Admin",
+  new mongoose.Schema({
+    adminName: { type: String },
+    adminPsd: { type: String }
+  })
+);
+
 // 公告商品表
 const Pub = mongoose.model(
   "Pub",
@@ -120,8 +129,7 @@ app.post("/goodsdetails/:id", async (req, res) => {
   res.send(good);
 });
 
-// 商品修改 可以用get post put 遵循 resterful 规范
-// put 是修改 覆盖性的修改
+// 商品修改 
 app.put("/api/goods/:id", async (req, res) => {
   const good = await Good.findByIdAndUpdate(req.params.id, req.body);
   res.send(good);
@@ -162,13 +170,13 @@ app.put("/api/users/:id", async (req, res) => {
 });
 
 // 公告栏操作---------------------------------
-// 公告商品列表
+// 公告栏商品列表
 app.get("/api/pubs", async (req, res) => {
   const pub = await Pub.find();
   res.send(pub);
 });
 
-// 删除商品
+// 删除公告栏商品
 app.delete("/api/pubs/:id", async (req, res) => {
   await Pub.findByIdAndDelete(req.params.id);
   res.send({
@@ -176,14 +184,13 @@ app.delete("/api/pubs/:id", async (req, res) => {
   });
 });
 
-// 商品详情
+// 公告栏商品详情
 app.get("/api/pubs/:id", async (req, res) => {
   const pub = await Pub.findById(req.params.id);
   res.send(pub);
 });
 
-// 商品修改 可以用get post put 遵循 resterful 规范
-// put 是修改 覆盖性的修改
+// 公告栏商品修改 
 app.put("/api/pubs/:id", async (req, res) => {
   const pub = await Pub.findByIdAndUpdate(req.params.id, req.body);
   res.send(pub);
@@ -216,11 +223,17 @@ app.get("/api/lys/:id", async (req, res) => {
   res.send(ly);
 });
 
-// 用户修改 可以用get post put 遵循 resterful 规范
-// put 是修改 覆盖性的修改
+// 留言修改
 app.put("/api/lys/:id", async (req, res) => {
   const ly = await lys.findByIdAndUpdate(req.params.id, req.body);
   res.send(ly);
+});
+
+// 系统管理员操作---------------------------------
+// 系统管理员密码修改
+app.put("/api/admins/:id", async (req, res) => {
+  const admin = await Admin.findByIdAndUpdate(req.params.id, req.body);
+  res.send(admin);
 });
 
 app.get("/", async (req, res) => {

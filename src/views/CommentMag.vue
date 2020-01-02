@@ -7,6 +7,7 @@
         <el-button @click="remove(id)" type="text" size="small">删除</el-button>
       </el-table-column>
     </el-table>
+    <el-button @click="goback()" size="small" type="info" class="btn" plain round>返回</el-button>
   </div>
 </template>
 
@@ -14,7 +15,7 @@
 export default {
   data() {
     return {
-      id:this.$route.params.id,
+      id: this.$route.params.id,
       goodsComments: []
     };
   },
@@ -53,6 +54,9 @@ export default {
             message: "已取消删除"
           });
         });
+    },
+    goback() {
+      this.$router.push("/goods/goodsList");
     }
   },
   created() {
@@ -62,4 +66,9 @@ export default {
 </script>
 
 <style scoped>
+.btn {
+  position: absolute;
+  top: 200px;
+  right: 60px;
+}
 </style>
