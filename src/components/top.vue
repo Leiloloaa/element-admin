@@ -1,6 +1,6 @@
 <template>
   <el-header style="text-align: right; font-size: 12px">
-    <div class="title">欢迎！{{userName}}会员登录淘二淘后台管理系统!</div>
+    <div class="title">欢迎！{{userName}}管理员登录淘二淘后台管理系统!</div>
     <el-dropdown>
       <i class="el-icon-s-home" style="margin-right: 15px"></i>
       <el-dropdown-menu slot="dropdown">

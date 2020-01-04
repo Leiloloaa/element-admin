@@ -11,8 +11,8 @@
         <el-select v-model="pub.pubsCate" placeholder="请选择商品类别">
           <el-option label="生活用品" value="lifegoods"></el-option>
           <el-option label="电子商品" value="elegoods"></el-option>
-          <el-option label="图书" value="bookgoods"></el-option>
-          <el-option label="其它" value="othergoods"></el-option>
+          <el-option label="二手图书" value="bookgoods"></el-option>
+          <el-option label="其它商品" value="othergoods"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item>

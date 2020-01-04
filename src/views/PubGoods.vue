@@ -60,28 +60,6 @@ export default {
     edit(id) {
       this.$router.push(`/pubs/${id}/edit`);
     }
-    //   remove(id) {
-    //     this.$confirm("此操作将永久删除该商品, 是否继续?", "提示", {
-    //       confirmButtonText: "确定",
-    //       cancelButtonText: "取消",
-    //       type: "warning"
-    //     })
-    //       .then(() => {
-    //         this.$http.delete(`pubs/${id}`).then(() => {
-    //           this.$message({
-    //             type: "success",
-    //             message: "删除成功!"
-    //           });
-    //           this.fetch();
-    //         });
-    //       })
-    //       .catch(() => {
-    //         this.$message({
-    //           type: "info",
-    //           message: "已取消删除"
-    //         });
-    //       });
-    //   }
   },
   created() {
     this.fetch();
