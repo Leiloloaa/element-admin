@@ -28,6 +28,19 @@ const Good = mongoose.model(
   })
 );
 
+// 订单表
+const Order = mongoose.model(
+  "Order",
+  new mongoose.Schema({
+    usersName: { type: String }, // 商家名称
+    goodsName: { type: String },
+    goodsPrice: { type: String },
+    address: { type: String }, // 发货地址
+    goodsStatu: { type: String }, // 订单支付状态
+    goodsDeliver: { type: String } // 订单是否发货
+  })
+);
+
 // 用户表
 const User = mongoose.model(
   "User",
@@ -129,10 +142,31 @@ app.post("/goodsdetails/:id", async (req, res) => {
   res.send(good);
 });
 
-// 商品修改 
+// 商品修改
 app.put("/api/goods/:id", async (req, res) => {
   const good = await Good.findByIdAndUpdate(req.params.id, req.body);
   res.send(good);
+});
+
+// 商品订单操作---------------------------------
+// 新增订单
+app.post("/api/orders", async (req, res) => {
+  const order = await Order.create(req.body);
+  res.send(order);
+});
+
+// 订单列表
+app.get("/api/orders", async (req, res) => {
+  const orders = await Order.find();
+  res.send(orders);
+});
+
+// 删除订单
+app.delete("/api/orders/:id", async (req, res) => {
+  await Order.findByIdAndDelete(req.params.id);
+  res.send({
+    status: true
+  });
 });
 
 // 用户操作---------------------------------
@@ -190,7 +224,7 @@ app.get("/api/pubs/:id", async (req, res) => {
   res.send(pub);
 });
 
-// 公告栏商品修改 
+// 公告栏商品修改
 app.put("/api/pubs/:id", async (req, res) => {
   const pub = await Pub.findByIdAndUpdate(req.params.id, req.body);
   res.send(pub);

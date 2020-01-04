@@ -4,6 +4,7 @@ import Router from "vue-router";
 import GoodsList from "./views/GoodsList.vue";
 import CreateGoods from "./views/CreateGoods.vue";
 import EditGoods from "./views/EditGoods.vue";
+import OrdersList from './views/OrdersList.vue'
 import PubGoods from "./views/PubGoods.vue";
 import EditPubs from "./views/EditPubs.vue";
 import LyManage from "./views/LyManage.vue";
@@ -37,6 +38,10 @@ export default new Router({
     {
       path: "/goods/:id/edit",
       component: EditGoods
+    },
+    {
+      path: "/goods/ordersList",
+      component: OrdersList
     },
     {
       path: "/pubs/pubGoods",

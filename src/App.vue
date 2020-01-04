@@ -8,6 +8,7 @@
           </template>
           <el-menu-item index="/goods/goodsList">商品列表</el-menu-item>
           <el-menu-item index="/goods/createGoods">新建商品</el-menu-item>
+          <el-menu-item index="/goods/ordersList">订单管理</el-menu-item>
           <el-menu-item index="/pubs/pubGoods">公告商品</el-menu-item>
           <el-menu-item index="/goods/lyManage">留言管理</el-menu-item>
         </el-submenu>
