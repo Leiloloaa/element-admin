@@ -196,9 +196,22 @@ app.get("/api/users/:id", async (req, res) => {
   res.send(user);
 });
 
-// 用户修改 可以用get post put 遵循 resterful 规范
+// 用户登录后渲染（前台）
+app.get("/usersdetails/:id", async (req, res) => {
+  const user = await User.findOne(ObjectId(req.params.id));
+  res.send(user);
+});
+
+// 后台用户修改 可以用get post put 遵循 resterful 规范
 // put 是修改 覆盖性的修改
 app.put("/api/users/:id", async (req, res) => {
+  const user = await User.findByIdAndUpdate(req.params.id, req.body);
+  res.send(user);
+});
+
+// 前台用户密码修改
+// post 可以实现部分修改
+app.post("/api/users/:id", async (req, res) => {
   const user = await User.findByIdAndUpdate(req.params.id, req.body);
   res.send(user);
 });
