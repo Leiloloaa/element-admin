@@ -18,6 +18,7 @@
           </template>
           <el-menu-item index="/users/usersManage">用户列表</el-menu-item>
           <el-menu-item index="/users/createUser">新建用户</el-menu-item>
+          <el-menu-item index="/users/usersManage">管理员信息</el-menu-item>
           <el-menu-item index="/users/UpdatePsd">修改密码</el-menu-item>
           <el-menu-item index="/users/exit">退出系统</el-menu-item>
         </el-submenu>
@@ -50,6 +51,7 @@ body {
 .el-aside {
   color: #404040;
 }
+ /* @import "./style/common"; */
 </style>
 
 <script>

@@ -1,88 +1,21 @@
 const express = require("express");
 const app = express();
 
+// 各集合（表）模型 
+// 对于 mongoose 的性能问题 因为每个模型里面都引入了 db.js 看似增加了很多个请求 其实不然
+// 一个文件只会连接一次 因为文件会缓存 底层已经封装了代码
+const User = require("./model/users.js");
+const Good = require("./model/goods.js");
+const Admin = require("./model/admins.js");
+const lys = require("./model/lys.js");
+const Order = require("./model/orders");
+const Pub = require("./model/pubs");
+
 const ObjectId = require("mongodb").ObjectId;
 
 // 允许跨域
 app.use(require("cors")());
 app.use(express.json());
-
-const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/element-admin", {
-  useNewUrlParser: true,
-  useFindAndModify: true,
-  useCreateIndex: true
-});
-
-// 商品表
-const Good = mongoose.model(
-  "Good",
-  new mongoose.Schema({
-    goodsName: { type: String },
-    goodsPrice: { type: String },
-    goodsContent: { type: String },
-    goodsCate: { type: String },
-    goodsImg: { type: String },
-    goodsImgSmall: { type: String },
-    goodsComments: { type: Array }
-  })
-);
-
-// 订单表
-const Order = mongoose.model(
-  "Order",
-  new mongoose.Schema({
-    usersName: { type: String }, // 商家名称
-    goodsName: { type: String },
-    goodsPrice: { type: String },
-    address: { type: String }, // 发货地址
-    goodsStatu: { type: String }, // 订单支付状态
-    goodsDeliver: { type: String } // 订单是否发货
-  })
-);
-
-// 用户表
-const User = mongoose.model(
-  "User",
-  new mongoose.Schema({
-    userName: { type: String },
-    userPsd: { type: String },
-    userSex: { type: String },
-    address: { type: String },
-    school: { type: String },
-    userContent: { type: String }
-  })
-);
-
-// 系统管理员表
-const Admin = mongoose.model(
-  "Admin",
-  new mongoose.Schema({
-    adminName: { type: String },
-    adminPsd: { type: String }
-  })
-);
-
-// 公告商品表
-const Pub = mongoose.model(
-  "Pub",
-  new mongoose.Schema({
-    pubsName: { type: String },
-    pubsPrice: { type: String },
-    pubsCate: { type: String },
-    pubsContent: { type: String }
-  })
-);
-
-// 留言表
-const lys = mongoose.model(
-  "lys",
-  new mongoose.Schema({
-    userName: { type: String },
-    lyTime: { type: String },
-    lyContent: { type: String }
-  })
-);
 
 // 商品操作---------------------------------
 // 新增商品
