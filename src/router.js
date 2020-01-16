@@ -1,10 +1,11 @@
 import Vue from "vue";
 import Router from "vue-router";
 
+import Home from "./views/Home.vue";
 import GoodsList from "./views/GoodsList.vue";
 import CreateGoods from "./views/CreateGoods.vue";
 import EditGoods from "./views/EditGoods.vue";
-import OrdersList from './views/OrdersList.vue'
+import OrdersList from "./views/OrdersList.vue";
 import PubGoods from "./views/PubGoods.vue";
 import EditPubs from "./views/EditPubs.vue";
 import LyManage from "./views/LyManage.vue";
@@ -13,7 +14,9 @@ import CommentMag from "./views/CommentMag.vue";
 import CreateUser from "./views/CreateUser.vue";
 import UsersList from "./views/UsersList.vue";
 import EditUsers from "./views/EditUsers.vue";
-import UpdatePsd from "./views/UpdatePsd.vue"
+import UpdatePsd from "./views/UpdatePsd.vue";
+import AdminInfo from "./views/AdminInfo.vue";
+import Explain from "./views/Explain.vue";
 
 Vue.use(Router);
 
@@ -21,7 +24,11 @@ export default new Router({
   routes: [
     {
       path: "/",
-      redirect: "/goods/goodsList"
+      redirect: "/home"
+    },
+    {
+      path: "/home",
+      component: Home
     },
     {
       path: "/goods/goodsList",
@@ -76,8 +83,16 @@ export default new Router({
       component: EditUsers
     },
     {
-      path: "/users/UpdatePsd",
+      path: "/users/updatePsd",
       component: UpdatePsd
-    }
+    },
+    {
+      path: "/users/adminInfo",
+      component: AdminInfo
+    },
+    {
+      path: "/explain",
+      component: Explain
+    },
   ]
 });

@@ -6,7 +6,10 @@ const Admin = mongoose.model(
   "Admin",
   new mongoose.Schema({
     adminName: { type: String },
-    adminPsd: { type: String }
+    adminPsd: { type: String },
+    adminSex: { type: String },
+    adminQX: { type: String },
+    adminInfo: { type: String }
   })
 );
 

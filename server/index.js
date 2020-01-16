@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 
-// 各集合（表）模型 
+// 各集合（表）模型
 // 对于 mongoose 的性能问题 因为每个模型里面都引入了 db.js 看似增加了很多个请求 其实不然
 // 一个文件只会连接一次 因为文件会缓存 底层已经封装了代码
 const User = require("./model/users.js");
@@ -213,6 +213,12 @@ app.put("/api/lys/:id", async (req, res) => {
 // 系统管理员密码修改
 app.put("/api/admins/:id", async (req, res) => {
   const admin = await Admin.findByIdAndUpdate(req.params.id, req.body);
+  res.send(admin);
+});
+
+// 系统管理员展示
+app.get("/api/admins", async (req, res) => {
+  const admin = await Admin.find();
   res.send(admin);
 });
 
