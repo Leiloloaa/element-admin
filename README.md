@@ -12,7 +12,7 @@
 2.  开启后台
     npm run serve
 3.  开启服务器
-    nodemon serve
+    nodemon server
 4.  开启移动 app
     ionic serve
 

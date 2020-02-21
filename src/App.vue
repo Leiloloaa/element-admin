@@ -4,7 +4,7 @@
       <el-menu router>
         <el-submenu index="0">
           <template slot="title">
-            <i class="el-icon-menu"></i>首页
+            <i class="el-icon-menu"></i>首页展示
           </template>
            <el-menu-item index="/home">首页</el-menu-item>
         </el-submenu>
@@ -30,7 +30,7 @@
         </el-submenu>
          <el-submenu index="3">
           <template slot="title">
-            <i class="el-icon-warning-outline"></i>说明
+            <i class="el-icon-warning-outline"></i>系统说明
           </template>
            <el-menu-item index="/explain">说明</el-menu-item>
         </el-submenu>
@@ -63,7 +63,6 @@ body {
 .el-aside {
   color: #404040;
 }
-/* @import "./style/common"; */
 </style>
 
 <script>
