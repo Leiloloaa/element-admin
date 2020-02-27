@@ -25,8 +25,8 @@
           <span>{{admin.adminQX}}</span>
         </li>
         <li class="item">
-          <span>简介：</span>
-          <span>{{admin.adminInfo}}</span>
+          <span>是否激活：</span>
+          <span>{{admin.isActive}}</span>
         </li>
       </ul>
     </div>

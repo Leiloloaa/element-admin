@@ -98,7 +98,7 @@ app.get("/api/orders", async (req, res) => {
 app.delete("/api/orders/:id", async (req, res) => {
   await Order.findByIdAndDelete(req.params.id);
   res.send({
-    status: true
+    status: true,
   });
 });
 
@@ -209,8 +209,8 @@ app.put("/api/lys/:id", async (req, res) => {
   res.send(ly);
 });
 
-// 系统管理员操作---------------------------------
-// 系统管理员密码修改
+// 管理员操作---------------------------------
+// 系统管理员
 app.put("/api/admins/:id", async (req, res) => {
   const admin = await Admin.findByIdAndUpdate(req.params.id, req.body);
   res.send(admin);
@@ -220,6 +220,20 @@ app.put("/api/admins/:id", async (req, res) => {
 app.get("/api/admins", async (req, res) => {
   const admin = await Admin.find();
   res.send(admin);
+});
+
+//管理员详情 渲染到页面的数据
+app.get("/api/admins/:id", async (req, res) => {
+  const admin = await Admin.findById(req.params.id);
+  res.send(admin);
+});
+
+// 删除管理员
+app.delete("/api/admins/:id", async (req, res) => {
+  await Admin.findByIdAndDelete(req.params.id);
+  res.send({
+    status: true
+  });
 });
 
 app.get("/", async (req, res) => {

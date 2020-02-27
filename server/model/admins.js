@@ -9,7 +9,7 @@ const Admin = mongoose.model(
     adminPsd: { type: String },
     adminSex: { type: String },
     adminQX: { type: String },
-    adminInfo: { type: String }
+    isActive: { type: String }
   })
 );
 

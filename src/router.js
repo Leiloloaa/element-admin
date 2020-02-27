@@ -16,6 +16,8 @@ import UsersList from "./views/UsersList.vue";
 import EditUsers from "./views/EditUsers.vue";
 import UpdatePsd from "./views/UpdatePsd.vue";
 import AdminInfo from "./views/AdminInfo.vue";
+import AuthorityMag from "./views/AuthorityMag.vue";
+import EditAdmin from "./views/EditAdmin.vue";
 import Explain from "./views/Explain.vue";
 
 Vue.use(Router);
@@ -89,6 +91,14 @@ export default new Router({
     {
       path: "/users/adminInfo",
       component: AdminInfo
+    },
+    {
+      path: "/users/authorityMag",
+      component: AuthorityMag
+    },
+    {
+      path: "/admins/:id/edit",
+      component: EditAdmin
     },
     {
       path: "/explain",
