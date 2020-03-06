@@ -1,6 +1,8 @@
 import Vue from "vue";
 import Router from "vue-router";
 
+// const Login = r => require.ensure([], () => r(require('@/view/login')), 'login');
+import Login from "./views/Login.vue";
 import Home from "./views/Home.vue";
 import GoodsList from "./views/GoodsList.vue";
 import CreateGoods from "./views/CreateGoods.vue";
@@ -26,7 +28,7 @@ export default new Router({
   routes: [
     {
       path: "/",
-      redirect: "/home"
+      component: Login
     },
     {
       path: "/home",

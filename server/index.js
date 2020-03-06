@@ -98,7 +98,7 @@ app.get("/api/orders", async (req, res) => {
 app.delete("/api/orders/:id", async (req, res) => {
   await Order.findByIdAndDelete(req.params.id);
   res.send({
-    status: true,
+    status: true
   });
 });
 
@@ -107,6 +107,21 @@ app.delete("/api/orders/:id", async (req, res) => {
 app.post("/api/users", async (req, res) => {
   const user = await User.create(req.body);
   res.send(user);
+});
+
+// 前台 用户登录
+app.post("/api/login", async (req, res) => {
+  const userName = req.body.userName;
+  const userPsd = req.body.userPsd;
+  const user = await User.find({ userName: userName }, function(err, user) {
+    if (user.length === 0) {
+      res.send({ isSuccess: false, message: "该用户不存在" });
+    } else if (user[0].userPsd === userPsd) {
+      res.send(user);
+    } else if (user[0].userPsd !== userPsd) {
+      res.send({ isSuccess: false, message: "密码不正确，请重新输入" });
+    }
+  });
 });
 
 // 用户列表
